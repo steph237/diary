@@ -35,6 +35,27 @@ app.post("/register", (req, res) => {
   });
 });
 
+app.post("/login", (req, res) => {
+  const diary_users_username = req.body.diary_users_username;
+  const diary_users_password = req.body.diary_users_password;
+
+  db.query(
+    "SELECT * FROM diary_users WHERE diary_users_username=? AND diary_users_password=?",
+    [diary_users_username, diary_users_password],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      if (result.length > 0) {
+        res.send(result);
+      } else {
+        res.send({ message: "Wrong username/password combination!" });
+      }
+    }
+  );
+});
+
 app.listen(3001, () => {
   console.log("yay its working");
 });

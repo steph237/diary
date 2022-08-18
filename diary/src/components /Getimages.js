@@ -33,7 +33,7 @@ export default function GetImages() {
 
   imageList();
 
-  console.log(img);
+  // console.log(img);
 
   // const newImages = [
   //   {

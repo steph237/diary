@@ -8,7 +8,7 @@ import GetImages from "../components /Getimages";
 function SignUp() {
   const [usernameReg, setUsernameReg] = useState("");
   const [pwdReg, setpwdReg] = useState("");
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const register = () => {
     Axios.post("http://localhost:3001/register", {
@@ -18,6 +18,29 @@ function SignUp() {
       console.log(response);
     });
   };
+
+  function SubmitButton() {
+    if (usernameReg && pwdReg) {
+      return (
+        <button
+          type="submit"
+          className="bg-blue-700 text-white font-bold py-2 px-4 rounded focus:ring focus:ring-blue-300 hover:bg-blue-500"
+          onClick={() => {
+            register();
+            setShowModal(true);
+          }}
+        >
+          Create account
+        </button>
+      );
+    } else {
+      return (
+        <button type="button" disabled>
+          Create account
+        </button>
+      );
+    }
+  }
 
   return (
     <div className="login mx-8 ">
@@ -63,16 +86,7 @@ function SignUp() {
             </div>
 
             <div className="flex justify-end py-4">
-              <button
-                type="submit"
-                className="bg-blue-700 text-white font-bold py-2 px-4 rounded focus:ring focus:ring-blue-300 hover:bg-blue-500"
-                onClick={() => {
-                  register();
-                  setShowModal(true);
-                }}
-              >
-                Create account
-              </button>
+              <SubmitButton />
             </div>
           </form>
         </div>

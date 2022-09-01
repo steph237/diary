@@ -36,7 +36,7 @@ export default function GetImages() {
   // console.log(img);
 
   // const newImages = [
-  //   {
+  //  a {
   //     url: "https://images.unsplash.com/photo-1657299170964-205905bb0940?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
   //   },
   //   {

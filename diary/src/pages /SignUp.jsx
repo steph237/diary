@@ -10,6 +10,14 @@ function SignUp() {
   const [pwdReg, setpwdReg] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
+  };
+
   const register = () => {
     Axios.post("http://localhost:3001/register", {
       diary_users_username: usernameReg,
@@ -73,7 +81,7 @@ function SignUp() {
               <label htmlFor="email">Create Password</label>
 
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 name="password"
                 id="password"
                 placeholder="••••••••"
@@ -83,6 +91,15 @@ function SignUp() {
                   setpwdReg(e.target.value);
                 }}
               />
+              <div>
+                <p
+                  onClick={togglePassword}
+                  class="cursor-pointer flex justify-end py-4 text-blue-400 text-sm"
+                >
+                  {" "}
+                  Show Password{" "}
+                </p>
+              </div>
             </div>
 
             <div className="flex justify-end py-4">
@@ -105,7 +122,7 @@ function SignUp() {
                     onClick={() => setShowModal(false)}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
+                      x
                     </span>
                   </button>
                 </div>

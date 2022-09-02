@@ -1,5 +1,5 @@
 import React from "react";
-import "./login.css";
+
 import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import Axios from "axios";
@@ -51,7 +51,7 @@ function SignUp() {
   }
 
   return (
-    <div className="login mx-8 ">
+    <div className="flex mx-8 ">
       <div className="app-image mt-6">
         <GetImages />
       </div>
@@ -59,7 +59,7 @@ function SignUp() {
         <div>
           <h1 className="text-slate-800 px-6 font-bold text-3xl md:text-4xl lg:text-6xl my-10 lg:mt-20 lg:mb-14">
             {" "}
-            Sign Up to get Started{" "}
+            Sign Up{" "}
           </h1>
         </div>
         <div className="form-content">
@@ -94,7 +94,7 @@ function SignUp() {
               <div>
                 <p
                   onClick={togglePassword}
-                  class="cursor-pointer flex justify-end py-4 text-blue-400 text-sm"
+                  className="cursor-pointer flex justify-end py-4 text-blue-400 text-sm"
                 >
                   {" "}
                   Show Password{" "}

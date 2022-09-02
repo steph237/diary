@@ -1,9 +1,10 @@
 import React from "react";
-import "./login.css";
+
 import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import Axios from "axios";
 import GetImages from "../components /Getimages";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -31,7 +32,7 @@ function Login() {
   };
 
   return (
-    <div className="login bg-red-50 mx-8 ">
+    <div className=" flex mx-8 ">
       <div className="app-image">
         <GetImages />
       </div>
@@ -39,7 +40,7 @@ function Login() {
         <div>
           <h1 className="text-slate-800 px-6 font-bold text-3xl md:text-4xl lg:text-6xl my-10 lg:mt-20 lg:mb-14">
             {" "}
-            Log in{" "}
+            Log in
           </h1>
         </div>
         <div className="form-content">
@@ -83,16 +84,17 @@ function Login() {
                 Show Password{" "}
               </p>
             </div>
-
-            <div className="flex justify-end py-4">
-              <button
-                type="submit"
-                className="bg-blue-700 text-white font-bold py-2 px-4 rounded focus:ring focus:ring-blue-300 hover:bg-blue-500"
-                onClick={login}
-              >
-                Login
-              </button>
-            </div>
+            <Link to="/entry">
+              <div className="flex justify-end py-4">
+                <button
+                  type="submit"
+                  className="bg-blue-700 text-white font-bold py-2 px-4 rounded focus:ring focus:ring-blue-300 hover:bg-blue-500"
+                  onClick={login}
+                >
+                  Login
+                </button>
+              </div>
+            </Link>
           </form>
           <h1> {loginStatus}</h1>
         </div>

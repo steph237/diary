@@ -4,6 +4,8 @@ import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import Axios from "axios";
 import GetImages from "../components /Getimages";
+import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function SignUp() {
   const [usernameReg, setUsernameReg] = useState("");
@@ -134,15 +136,16 @@ function SignUp() {
                   </p>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button
-                    className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    LogIn
-                  </button>
-                </div>
+                <Link to="/login">
+                  <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                    <button
+                      className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                    >
+                      LogIn
+                    </button>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

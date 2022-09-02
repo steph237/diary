@@ -10,6 +10,11 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const [loginStatus, setLoginStatus] = useState("");
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   const login = () => {
     Axios.post("http://localhost:3001/login", {
@@ -57,7 +62,7 @@ function Login() {
               <label htmlFor="email">Password</label>
 
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 name="password"
                 id="password"
                 placeholder="••••••••"
@@ -67,6 +72,16 @@ function Login() {
                   setPassword(e.target.value);
                 }}
               />
+            </div>
+
+            <div>
+              <p
+                onClick={togglePassword}
+                class="cursor-pointer flex justify-end py-4 text-blue-400 text-sm"
+              >
+                {" "}
+                Show Password{" "}
+              </p>
             </div>
 
             <div className="flex justify-end py-4">
@@ -82,12 +97,7 @@ function Login() {
           <h1> {loginStatus}</h1>
         </div>
       </div>
-
-
-
-      
     </div>
-    
   );
 }
 
